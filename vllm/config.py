@@ -392,10 +392,11 @@ def _get_and_verify_max_len(
     if max_model_len is None:
         max_model_len = derived_max_model_len
     elif max_model_len > derived_max_model_len:
-        raise ValueError(
+        print(
             f"User-specified max_model_len ({max_model_len}) is greater than "
             f"the derived max_model_len ({max_len_key}={derived_max_model_len}"
             " in model's config.json). This may lead to incorrect model "
             "outputs or CUDA errors. Make sure the value is correct and "
             "within the model context size.")
+    print(f"{max_model_len=}")
     return int(max_model_len)
